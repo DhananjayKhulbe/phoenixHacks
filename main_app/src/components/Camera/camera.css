@@ -1,0 +1,110 @@
+
+
+
+.b1 {
+  background-color: transparent;
+  border: 1px solid #266DB6;
+  box-sizing: border-box;
+  padding: 10%;
+  width:100%;
+  color: #00132C;
+  font-family: "Avenir Next LT W01 Bold",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  width:325%;
+   margin-left: 5%;
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.b1:hover,
+.b1:active {
+  outline: 0;
+}
+
+.b1:hover {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.b1:before {
+  background-color: #D5EDF6;
+  content: "";
+  height: calc(100% - 1px);
+  position: absolute;
+  right: -7px;
+  top: -9px;
+  transition: background-color 300ms ease-in;
+  width: 100%;
+  z-index: -1;
+}
+
+.b1:hover:before {
+  background-color: #6DCFF6;
+}
+
+
+
+.img{
+    margin-top: 50%;
+}
+
+
+
+
+
+
+
+
+.b2 {
+    background-color: transparent;
+    border: 1px solid #266DB6;
+    box-sizing: border-box;
+    color: #00132C;
+    font-family: "Avenir Next LT W01 Bold",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    width:325%;
+    margin-left: 5%;
+    padding: 10%;
+    line-height: 24px;
+    position: relative;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .b2:hover,
+  .b2:active {
+    outline: 0;
+  }
+  
+  .b2:hover {
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .b2:before {
+    background-color: #D5EDF6;
+    content: "";
+    height: calc(100% + 1px);
+    position: absolute;
+    right: 7px;
+    top: 9px;
+    transition: background-color 300ms ease-in;
+    width: 100%;
+    z-index: -1;
+  }
+  
+  .b2:hover:before {
+    background-color: #6DCFF6;
+  }
+  
+  
+
+

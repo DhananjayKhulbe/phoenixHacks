@@ -1,15 +1,54 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import { Popup } from "./components/Popup/Popup";
+import CameraComponent from "./components/Camera/camera";
+import Webcam from "react-webcam";
 
-function App() {
+
+const WebcamComponent = () => <Webcam />;
+
+const Translator = () => {
+  const [open, setOpen] = useState(true); // Set open to true initially
+  const [text, setText] = useState('');
+  const [sourceLang, setSourceLang] = useState('en');
+  const [targetLang, setTargetLang] = useState('en');
+  const [translatedText, setTranslatedText] = useState('');
+
+  useEffect(() => {
+    
+    
+  }, []); // Empty dependency array means this effect only runs once after the initial render
+
+  const handleTranslate = async () => {
+    const response = await fetch(`https://api.translate.com/translate?text=${text}&source=${sourceLang}&target=${targetLang}`);
+    const data = await response.json();
+    setTranslatedText(data.translatedText);
+  };
+
+  const handleCamera = () => {
+    console.log('Camera access not implemented yet');
+  };
+
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>Welcome to My React App</h1>
-        <p>This is a basic starter template.</p>
-      </header>
+    <div className="translator">
+      
+      <h1 className="main_heading">Language Learner 3000</h1>
+      <div className="languages">
+        <select id="source-lang" value={sourceLang} className="original" onChange={(e) => setSourceLang(e.target.value)}>
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+        </select>
+        <select id="target-lang" value={targetLang} className="translated" onChange={(e) => setTargetLang(e.target.value)}>
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+        </select>
+      </div>
+      <br />
+      <CameraComponent />
+      {open ? <Popup text="Welcome to Translator 3000!" closePopup={() => setOpen(false)} /> : null}
+      {translatedText && <p>Translated Text: {translatedText}</p>}
     </div>
   );
-}
+};
 
-export default App;
+export default Translator;
