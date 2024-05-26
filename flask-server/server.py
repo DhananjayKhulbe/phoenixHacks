@@ -5,6 +5,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 from ultralytics import YOLO
 import runpy
+from deep_translator import GoogleTranslator
 
 
 import cv2
@@ -29,6 +30,10 @@ def run_yolo(imgPath):
 
     model = YOLO("yolov8n.pt") 
 
+    '''for i in range(len(model.names)):
+        print(model.names[i])
+        model.names[i] = GoogleTranslator(source='english', target='es').translate(model.names[i])'''
+
     results = model([png_image]) 
 
     for result in results:
@@ -44,10 +49,13 @@ def run_yolo(imgPath):
         output_directory = 'main_app/src/components/Camera'
         if not os.path.exists(output_directory):
             os.makedirs(output_directory)
-
+        for x in range(len(result.names)):
+            result.names[x] = GoogleTranslator(source = 'english', target = 'es').translate(result.names[x])
+            #print(result.names[x])
         #filename = "result.png"
         #outPath = output_directory + filename
         result.save("main_app/src/components/Camera/result.png")
+        result.save("main_app/src/components/Camera")
 
         
         #tempImage = Image.open("result.png")

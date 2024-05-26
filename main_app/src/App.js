@@ -9,7 +9,7 @@ import Webcam from "react-webcam";
 const WebcamComponent = () => <Webcam />;
 
 const Translator = () => {
-  const [open, setOpen] = useState(true); // Set open to true initially
+  const [open, setOpen] = useState(true); 
   const [text, setText] = useState('');
   const [sourceLang, setSourceLang] = useState('en');
   const [targetLang, setTargetLang] = useState('en');
@@ -18,7 +18,7 @@ const Translator = () => {
   useEffect(() => {
     
     
-  }, []); // Empty dependency array means this effect only runs once after the initial render
+  }, []); 
 
   const handleTranslate = async () => {
     const response = await fetch(`https://api.translate.com/translate?text=${text}&source=${sourceLang}&target=${targetLang}`);
