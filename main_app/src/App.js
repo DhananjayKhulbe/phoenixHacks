@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import './App.css';
 import { Popup } from "./components/Popup/Popup";
 import CameraComponent from "./components/Camera/camera";
@@ -43,8 +44,18 @@ const Translator = () => {
           <option value="es">Spanish</option>
         </select>
       </div>
+      
       <br />
+      <div className="App">
+      
+    
+      </div>
       <CameraComponent />
+      
+
+      
+
+
       {open ? <Popup text="Welcome to Translator 3000!" closePopup={() => setOpen(false)} /> : null}
       {translatedText && <p>Translated Text: {translatedText}</p>}
     </div>
